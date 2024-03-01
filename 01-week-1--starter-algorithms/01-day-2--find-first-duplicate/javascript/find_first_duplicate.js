@@ -1,6 +1,23 @@
+//create an empty object called store
+//iterate over the arr
+//if store has a key equal to the element in arr, return the element
+//  else if store does not have a key equal to the element in arr, create the key with a value of 1
+//return -1
+
+
 function findFirstDuplicate(arr) {
-  // type your code here
+  const store = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (store[arr[i]]) {
+      return arr[i];
+    } else {
+      store[arr[i]] = true;
+    }
+  }
+  return -1
 }
+
+console.log(findFirstDuplicate([1,2,3,4,2]))
 
 if (require.main === module) {
   // add your own tests in here
