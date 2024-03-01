@@ -1,6 +1,17 @@
+// create a new array
+// iterate over the argument array, pushing each element into the new array
+// concatenate the array into a string
+
+
 function reverseString(str) {
-  // type your code here
+  const reverseArray = [];
+  for (char of str) {
+    reverseArray.unshift(char)
+  }
+  return reverseArray.join("")
 }
+
+console.log(reverseString("hello"))
 
 if (require.main === module) {
   // add your own tests in here
