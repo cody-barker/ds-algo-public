@@ -5,19 +5,31 @@
 //return -1
 
 
+// function findFirstDuplicate(arr) {
+//   const store = {};
+//   for (let i = 0; i < arr.length; i++) {
+//     if (store[arr[i]]) {
+//       return arr[i];
+//     } else {
+//       store[arr[i]] = true;
+//     }
+//   }
+//   return -1
+// }
+
 function findFirstDuplicate(arr) {
   const store = {};
-  for (let i = 0; i < arr.length; i++) {
+  for (let i=0; i < arr.length; i++) {
     if (store[arr[i]]) {
-      return arr[i];
+      return arr[i]
     } else {
-      store[arr[i]] = true;
+      store[arr[i]] = 1;
     }
   }
   return -1
 }
 
-console.log(findFirstDuplicate([1,2,3,4,2]))
+console.log(findFirstDuplicate([1,2,3,4,2,3]))
 
 if (require.main === module) {
   // add your own tests in here
