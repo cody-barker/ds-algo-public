@@ -3,28 +3,36 @@
 // concatenate the array into a string
 
 
+// function reverseString(str) {
+//   const reverseArray = [];
+//   for (char of str) {
+//     reverseArray.unshift(char)
+//   }
+//   return reverseArray.join("")
+// }
+
 function reverseString(str) {
-  const reverseArray = [];
-  for (char of str) {
-    reverseArray.unshift(char)
+  let reversed = "";
+  for (let i=str.length - 1; i >= 0; i--) {
+    reversed += str[i]
   }
-  return reverseArray.join("")
+  console.log(reversed == str)
 }
 
-console.log(reverseString("hello"))
+reverseString("racecar")
 
-if (require.main === module) {
-  // add your own tests in here
-  console.log("Expecting: 'ih'");
-  console.log("=>", reverseString("hi"));
+// if (require.main === module) {
+//   // add your own tests in here
+//   console.log("Expecting: 'ih'");
+//   console.log("=>", reverseString("hi"));
 
-  console.log("");
+//   console.log("");
 
-  console.log("Expecting: 'ybabtac'");
-  console.log("=>", reverseString("catbaby"));
-}
+//   console.log("Expecting: 'ybabtac'");
+//   console.log("=>", reverseString("catbaby"));
+// }
 
-module.exports = reverseString;
+// module.exports = reverseString;
 
 // Please add your pseudocode to this file
 // And a written explanation of your solution
