@@ -1,5 +1,24 @@
+# def find_first_duplicate(arr)
+#   store = Hash.new()
+#   i = 0;
+#   while i < arr.length
+#     if store[arr[i]]
+#       return arr[i]
+#     else
+#       store[arr[i]] = 1
+#     end
+#     i = i + 1
+#   end
+#   -1
+# end
+
 def find_first_duplicate(arr)
-  # type your code in here
+  store = Hash.new()
+  arr.each do |element|
+    return element if store.key?(element)
+    store[element] = 1
+  end
+  -1
 end
 
 if __FILE__ == $PROGRAM_NAME
