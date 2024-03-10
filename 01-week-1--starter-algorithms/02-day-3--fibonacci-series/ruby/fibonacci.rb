@@ -1,5 +1,20 @@
 def fibonacci(num)
-  # type your code in here
+  if num <= 1
+    return num
+  end
+
+  a = 0
+  b = 1
+  i = 2
+
+  until i > num do
+    c = a + b
+    a = b
+    b = c
+    i = i + 1
+  end
+
+  b
 end
 
 if __FILE__ == $PROGRAM_NAME
