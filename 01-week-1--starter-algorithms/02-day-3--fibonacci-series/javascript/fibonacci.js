@@ -14,7 +14,11 @@ function fibonacci(num) {
   return b;
 }
 
-console.log(fibonacci(3))
+//variables
+//a b and c
+//c = a + b
+
+// console.log(fibonacci(3))
 
 if (require.main === module) {
   // add your own tests in here
