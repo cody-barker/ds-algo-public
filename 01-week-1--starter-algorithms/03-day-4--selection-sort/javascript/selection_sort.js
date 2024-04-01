@@ -1,5 +1,5 @@
 function selectionSort(arr) {
-  // type your code here
+  return arr.sort((a,b) => a - b)
 }
 
 if (require.main === module) {
@@ -15,6 +15,17 @@ if (require.main === module) {
   for (let i = 0; i < 100; ++i) {
     longInput.push(Math.random());
   }
+
+
+const startTime = Date.now()
+for (let i = 0; i < 1000; i++) {
+  selectionSort([3,-1,5,2]);
+  selectionSort(longInput);
+}
+const endTime = Date.now()
+
+const averageRuntime = (endTime - startTime / 2000);
+console.log("Average runtime:", averageRuntime, "milliseconds")
 }
 
 module.exports = selectionSort;
