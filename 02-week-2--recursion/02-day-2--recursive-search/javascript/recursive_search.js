@@ -1,13 +1,26 @@
-function recursiveSearch(arr, target, i = 0) {
-  if (i >= arr.length) {
-    return false
+// function recursiveSearch(arr, target, i = 0) {
+//   if (i >= arr.length) {
+//     return false
+//   }
+
+//   if (arr[i] === target) {
+//     return true
+//   }
+
+//   return recursiveSearch(arr, target, ++i);
+// }
+
+function recursiveSearch(arr, target) {
+  if (arr.length === 0) {
+    return false;
   }
 
-  if (arr[i] === target) {
-    return true
+  if (arr[0] === target) {
+    return true;
   }
 
-  return recursiveSearch(arr, target, ++i);
+  arr.splice(0, 1);
+  return recursiveSearch(arr, target);
 }
 
 //start with a base case to end the stack
