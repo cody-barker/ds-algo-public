@@ -1,6 +1,18 @@
-function recursiveSearch(arr, target) {
-  // type your code here
+function recursiveSearch(arr, target, i = 0) {
+  if (i >= arr.length) {
+    return false
+  }
+
+  if (arr[i] === target) {
+    return true
+  }
+
+  return recursiveSearch(arr, target, ++i);
 }
+
+//start with a base case to end the stack
+//start with arr[0], if not equal to target, call again and iterate to arr[1] until end of arr
+//default to returning false
 
 if (require.main === module) {
   // add your own tests in here
