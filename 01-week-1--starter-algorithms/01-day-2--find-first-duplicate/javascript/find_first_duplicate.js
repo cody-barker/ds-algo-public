@@ -17,19 +17,35 @@
 //   return -1
 // }
 
+// function findFirstDuplicate(arr) {
+//   const store = {};
+//   for (let i=0; i < arr.length; i++) {
+//     if (store[arr[i]]) {
+//       return arr[i]
+//     } else {
+//       store[arr[i]] = 1;
+//     }
+//   }
+//   return -1
+// }
+
+//create a store object to store seen values
+//iterate through array
+//if value has not been seen, create a new key
+//if value is a key already, return it
+//if all new keys, return -1
+
 function findFirstDuplicate(arr) {
-  const store = {};
-  for (let i=0; i < arr.length; i++) {
-    if (store[arr[i]]) {
-      return arr[i]
+  let store = {};
+  for (element of arr) {
+    if (store[element]) {
+      return element
     } else {
-      store[arr[i]] = 1;
+      store[element] = 1
     }
   }
   return -1
 }
-
-console.log(findFirstDuplicate([1,2,3,4,2,3]))
 
 if (require.main === module) {
   // add your own tests in here
