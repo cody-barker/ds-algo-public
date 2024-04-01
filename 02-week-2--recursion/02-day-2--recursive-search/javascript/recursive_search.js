@@ -19,8 +19,7 @@ function recursiveSearch(arr, target) {
     return true;
   }
 
-  arr.splice(0, 1);
-  return recursiveSearch(arr, target);
+  return recursiveSearch(arr.splice(1), target);
 }
 
 //start with a base case to end the stack
