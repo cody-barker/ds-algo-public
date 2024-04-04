@@ -10,6 +10,18 @@
 //   return recursiveSearch(arr, target, ++i);
 // }
 
+// function recursiveSearch(arr, target) {
+//   if (arr.length === 0) {
+//     return false;
+//   }
+
+//   if (arr[0] === target) {
+//     return true;
+//   }
+
+//   return recursiveSearch(arr.splice(1), target);
+// }
+
 function recursiveSearch(arr, target) {
   if (arr.length === 0) {
     return false;
@@ -21,6 +33,8 @@ function recursiveSearch(arr, target) {
 
   return recursiveSearch(arr.splice(1), target);
 }
+
+console.log([1, 2, 3].splice(1));
 
 //start with a base case to end the stack
 //start with arr[0], if not equal to target, call again and iterate to arr[1] until end of arr
