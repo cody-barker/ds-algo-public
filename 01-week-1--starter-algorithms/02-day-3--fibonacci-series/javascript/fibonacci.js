@@ -1,22 +1,33 @@
+// function fibonacci(num) {
+//   if (num <= 1) {
+//     return num
+//   }
 
+//   let a = 0, b = 1, c;
+//   for (let i = 2; i<= num; i++) {
+//     c = a + b;
+//     a = b;
+//     b = c;
+//   }
+//   return b;
+// }
+
+//start at 2, with 0 and 1 base case
 
 function fibonacci(num) {
   if (num <= 1) {
-    return num 
+    return num;
   }
-
-  let a = 0, b = 1, c;
-  for (let i = 2; i<= num; i++) {
+  let a = 0,
+    b = 1,
+    c;
+  for (let i = 2; i <= num; i++) {
     c = a + b;
     a = b;
     b = c;
   }
   return b;
 }
-
-//variables
-//a b and c
-//c = a + b
 
 // console.log(fibonacci(3))
 
