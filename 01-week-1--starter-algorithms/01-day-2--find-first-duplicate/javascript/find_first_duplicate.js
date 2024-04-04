@@ -4,7 +4,6 @@
 //  else if store does not have a key equal to the element in arr, create the key with a value of 1
 //return -1
 
-
 // function findFirstDuplicate(arr) {
 //   const store = {};
 //   for (let i = 0; i < arr.length; i++) {
@@ -35,16 +34,32 @@
 //if value is a key already, return it
 //if all new keys, return -1
 
+// function findFirstDuplicate(arr) {
+//   let store = {};
+//   for (element of arr) {
+//     if (store[element]) {
+//       return element
+//     } else {
+//       store[element] = 1
+//     }
+//   }
+//   return -1
+// }
+
+//use an object for storing previously seen numbers
+//iterate over the array, if number not a property, add it to obj, if prop, return the num
+//if no dup, return -1
+
 function findFirstDuplicate(arr) {
-  let store = {};
-  for (element of arr) {
-    if (store[element]) {
-      return element
+  const store = {};
+  for (let num of arr) {
+    if (store[num]) {
+      return num;
     } else {
-      store[element] = 1
+      store[num] = 1;
     }
   }
-  return -1
+  return -1;
 }
 
 if (require.main === module) {
