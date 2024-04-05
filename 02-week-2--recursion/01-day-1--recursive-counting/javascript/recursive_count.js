@@ -1,9 +1,27 @@
+// function recursiveCount(num = 0) {
+//   if (num === 10) {
+//     return
+//   }
+//   console.log(num)
+//   recursiveCount(++num)
+// }
+
+// function recursiveCount(num = 0) {
+//   if (num >= 10) {
+//     return
+//   }
+
+//   console.log(num)
+//   recursiveCount(++num)
+
+// }
+
 function recursiveCount(num = 0) {
-  if (num === 10) {
-    return
+  if (num >= 10) {
+    return;
   }
-  console.log(num)
-  recursiveCount(++num)
+  console.log(num);
+  recursiveCount(++num);
 }
 
 //write the base case

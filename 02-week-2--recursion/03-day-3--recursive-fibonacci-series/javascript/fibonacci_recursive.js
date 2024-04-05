@@ -1,9 +1,26 @@
-function fibonacci(n) {
-  if (n < 2) {
-    return n
+// function fibonacci(n) {
+//   if (n < 2) {
+//     return n
+//   }
+
+//   return fibonacci(n - 1) + fibonacci(n - 2);
+// }
+
+// function fibonacci(n) {
+//   if (n < 2) {
+//     return n;
+//   }
+
+//   return fibonacci(n - 1) + fibonacci(n - 2);
+
+// }
+
+function fibonacci(num) {
+  if (num < 2) {
+    return num;
   }
 
-  return fibonacci(n - 1) + fibonacci(n - 2);
+  return fibonacci(num - 1) + fibonacci(num - 2);
 }
 
 if (require.main === module) {

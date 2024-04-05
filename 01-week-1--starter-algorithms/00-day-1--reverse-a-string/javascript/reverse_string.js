@@ -2,7 +2,6 @@
 // iterate over the argument array, pushing each element into the new array
 // concatenate the array into a string
 
-
 // function reverseString(str) {
 //   const reverseArray = [];
 //   for (char of str) {
@@ -11,15 +10,24 @@
 //   return reverseArray.join("")
 // }
 
+// function reverseString(str) {
+//   let reversed = "";
+//   for (let i=str.length - 1; i >= 0; i--) {
+//     reversed += str[i]
+//   }
+//   console.log(reversed == str)
+// }
+
 function reverseString(str) {
-  let reversed = "";
-  for (let i=str.length - 1; i >= 0; i--) {
-    reversed += str[i]
+  const arr = str.split("");
+  let reversed = [];
+  for (char of arr) {
+    reversed.unshift(char);
   }
-  console.log(reversed == str)
+  console.log(reversed.join("") === str);
 }
 
-reverseString("racecar")
+reverseString("racecar");
 
 // if (require.main === module) {
 //   // add your own tests in here
