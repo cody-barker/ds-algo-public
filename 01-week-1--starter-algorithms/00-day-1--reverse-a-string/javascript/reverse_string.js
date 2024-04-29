@@ -18,13 +18,22 @@
 //   console.log(reversed == str)
 // }
 
-function reverseString(str) {
-  const arr = str.split("");
-  let reversed = [];
+// function reverseString(str) {
+//   const arr = str.split("");
+//   let reversed = [];
+//   for (const char of arr) {
+//     reversed.unshift(char);
+//   }
+//   console.log(reversed.join("") === str);
+// }
+
+function reverseString(string) {
+  const arr = string.split("");
+  const reversed = [];
   for (const char of arr) {
-    reversed.unshift(char);
+    reversed.unshift(char)
   }
-  console.log(reversed.join("") === str);
+  console.log(reversed.join("") === string)
 }
 
 reverseString("racecar");
