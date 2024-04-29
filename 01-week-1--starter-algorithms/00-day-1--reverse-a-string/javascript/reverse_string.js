@@ -21,7 +21,7 @@
 function reverseString(str) {
   const arr = str.split("");
   let reversed = [];
-  for (char of arr) {
+  for (const char of arr) {
     reversed.unshift(char);
   }
   console.log(reversed.join("") === str);
