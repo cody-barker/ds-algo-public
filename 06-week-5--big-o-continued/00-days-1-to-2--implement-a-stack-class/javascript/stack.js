@@ -9,43 +9,54 @@ class Stack {
   // add item to top of stack if not full
   // if full throw error
   push(item) {
-
+    if (!this.isFull()) {
+      return this.stack.push(item);
+    } else {
+      throw new Error("This stack is full!");
+    }
   }
 
   // remove item from top of stack and return it
   pop() {
-
+    return this.stack.pop();
   }
 
   // return item at top of stack without removing it
   peek() {
-
+    return this.stack[this.size() - 1];
   }
 
   // return true if stack is empty, otherwise false
   isEmpty() {
-
+    return this.size() === 0;
   }
 
   // return true if stack is full, otherwise false
   isFull() {
-
+    return this.size() === this.limit;
   }
 
   // return number of items in stack
   size() {
-
+    return this.stack.length;
   }
 
-  // return -1 if item not in stack, otherwise integer representing 
+  // return -1 if item not in stack, otherwise integer representing
   // how far it is from the top
   search(target) {
-
+    for (let i = -1; i >= -this.size(); --i) {
+      if (this.stack[this.size() + i] === target) {
+        return Math.abs(i) - 1;
+      }
+    }
+    return -1;
   }
 
   // print contents of stack: do not return the stack itself!
   print() {
-    
+    this.stack.forEach((element) => {
+      console.log(element);
+    });
   }
 }
 
@@ -54,3 +65,12 @@ if (require.main === module) {
 }
 
 module.exports = Stack;
+
+let stack = new Stack();
+
+stack.push(1)
+stack.push(3);
+stack.push(4);
+stack.push(7);
+
+console.log(stack.search(7))
