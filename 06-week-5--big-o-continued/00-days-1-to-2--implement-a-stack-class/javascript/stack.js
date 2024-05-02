@@ -45,6 +45,7 @@ class Stack {
   // how far it is from the top
   search(target) {
     for (let i = -1; i >= -this.size(); --i) {
+      debugger;
       if (this.stack[this.size() + i] === target) {
         return Math.abs(i) - 1;
       }
@@ -68,9 +69,9 @@ module.exports = Stack;
 
 let stack = new Stack();
 
-stack.push(1)
+stack.push(1);
 stack.push(3);
 stack.push(4);
 stack.push(7);
 
-console.log(stack.search(7))
+console.log(stack.search(1));
