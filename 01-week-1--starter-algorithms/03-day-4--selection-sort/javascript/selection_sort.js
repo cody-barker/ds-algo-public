@@ -27,7 +27,7 @@ if (require.main === module) {
   }
   const endTime = Date.now();
 
-  const averageRuntime = endTime - startTime / 2000;
+  const averageRuntime = (endTime - startTime) / 2000;
   console.log("Average runtime:", averageRuntime, "milliseconds");
 }
 
