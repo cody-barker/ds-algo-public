@@ -25,20 +25,20 @@
 //     reversed.unshift(char);
 //   }
 //   console.log(reversed.join("") === str);
+// // }
+
+// function reverseString(string) {
+//   const arr = string.split("");
+//   const reversed = [];
+//   for (const char of arr) {
+//     reversed.unshift(char)
+//   }
+//   console.log(reversed.join("") === string)
 // }
 
-function reverseString(string) {
-  const arr = string.split("");
-  const reversed = [];
-  for (const char of arr) {
-    reversed.unshift(char)
-  }
-  console.log(reversed.join("") === string)
-}
+// reverseString("racecar");
 
-reverseString("racecar");
-
-// if (require.main === module) {
+// // if (require.main === module) {
 //   // add your own tests in here
 //   console.log("Expecting: 'ih'");
 //   console.log("=>", reverseString("hi"));
@@ -53,3 +53,19 @@ reverseString("racecar");
 
 // Please add your pseudocode to this file
 // And a written explanation of your solution
+
+//create a new string called reversedString
+//iterate over string and unshift each char into reversedString
+//return reversedString
+
+function reverseString(string) {
+  let reversedString = "";
+  for (let i = string.length - 1; i >= 0; i--) {
+    reversedString += string[i];
+  }
+  return reversedString;
+}
+
+console.log(reverseString("a"));
+
+module.exports = reverseString;
