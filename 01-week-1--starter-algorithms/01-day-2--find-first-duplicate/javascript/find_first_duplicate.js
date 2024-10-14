@@ -50,13 +50,33 @@
 //iterate over the array, if number not a property, add it to obj, if prop, return the num
 //if no dup, return -1
 
-function findFirstDuplicate(arr) {
-  const store = {};
-  for (let num of arr) {
-    if (store[num]) {
-      return num;
+// function findFirstDuplicate(arr) {
+//   const store = {};
+//   for (let num of arr) {
+//     if (store[num]) {
+//       return num;
+//     } else {
+//       store[num] = 1;
+//     }
+//   }
+//   return -1;
+// }
+
+//find first duplicate in array, if no duplicates return -1
+
+//create a hash for storing key value pairs of the number of times an element appears. ie element is key, value is 1
+//iterate over the array and check the hash for a key of that element
+//if the key exists, return that key as the duplicate
+//if the key does not exist, create the key and set value to anything (ie 1)
+//if no duplicates, default return -1 outside of iteration
+
+function findFirstDuplicate(array) {
+  let hash = {};
+  for (let element of array) {
+    if (hash[element]) {
+      return element;
     } else {
-      store[num] = 1;
+      hash[element] = 1;
     }
   }
   return -1;
