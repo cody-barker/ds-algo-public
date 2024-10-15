@@ -2,6 +2,8 @@
 //Iterate through, testing whether num1 + num2 = target,
 //   if not, num1 = num2, num2 + 1 (how to do this?)
 
+const { setDefaultAutoSelectFamily } = require("net");
+
 // function distinctPairSum(arr, k) {
 //   let distinctArr = [];
 
@@ -30,6 +32,46 @@
 //   return distinctArr;
 // }
 
+// function distinctPairSum(arr, k) {
+//   const seen = new Set();
+//   const pairs = new Set();
+
+//   for (const num of arr) {
+//     const complement = k - num;
+
+//     if (seen.has(complement)) {
+//       // Sort pair to avoid duplicates
+//       const sortedPair = [num, complement].sort((a, b) => a - b).toString();
+//       pairs.add(sortedPair);
+//     }
+
+//     seen.add(num);
+//   }
+
+//   // Convert the set of strings back into arrays
+//   return Array.from(pairs).map((pair) => pair.split(",").map(Number));
+// }
+
+// function distinctPairSum(arr, k) {
+//   const seen = new Set();
+//   const pairs = new Set();
+
+//   for (const num of arr) {
+//     const complement = k - num;
+
+//     if (seen.has(complement)) {
+//       // Sort pair to avoid duplicates
+//       const sortedPair = [num, complement].sort((a, b) => a - b).toString();
+//       pairs.add(sortedPair);
+//     }
+
+//     seen.add(num);
+//   }
+
+//   // Convert the set of strings back into arrays
+//   return Array.from(pairs).map((pair) => pair.split(",").map(Number));
+// }
+
 function distinctPairSum(arr, k) {
   const seen = new Set();
   const pairs = new Set();
@@ -38,7 +80,6 @@ function distinctPairSum(arr, k) {
     const complement = k - num;
 
     if (seen.has(complement)) {
-      // Sort pair to avoid duplicates
       const sortedPair = [num, complement].sort((a, b) => a - b).toString();
       pairs.add(sortedPair);
     }
@@ -46,7 +87,6 @@ function distinctPairSum(arr, k) {
     seen.add(num);
   }
 
-  // Convert the set of strings back into arrays
   return Array.from(pairs).map((pair) => pair.split(",").map(Number));
 }
 
