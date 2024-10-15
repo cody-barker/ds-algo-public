@@ -7,8 +7,14 @@
 
 function rotateArray(arr, k) {
   const rotations = k % arr.length;
+  //slice end of array, then concat on the beginning of the array
   return arr.slice(-rotations).concat(arr.slice(0, -rotations));
 }
+
+// function rotateArray(arr, k) {
+//   const rotations = k % arr.length;
+//   return arr.slice(-rotations).concat(arr.slice(0, -rotations));
+// }
 
 if (require.main === module) {
   // add your own tests in here
