@@ -18,12 +18,24 @@
 //   return arr[0].length <= result.length ? arr[0] : result
 // }
 
-function findShortestStringRecursive(arr) {
-  if (arr.length === 1) {
-    return arr[0];
+// function findShortestStringRecursive(arr) {
+//   if (arr.length === 1) {
+//     return arr[0];
+//   }
+//   const result = findShortestStringRecursive(arr.slice(1));
+//   return arr[0].length <= result.length ? arr[0] : result;
+// }
+
+function findShortestStringRecursive(arr, index = 0, currentShortest = arr[0]) {
+  if (index === arr.length) {
+    return currentShortest;
   }
-  const result = findShortestStringRecursive(arr.slice(1));
-  return arr[0].length <= result.length ? arr[0] : result;
+
+  if (arr[index].length < currentShortest.length) {
+    currentShortest = arr[index];
+  }
+
+  return findShortestStringRecursive(arr, ++index, currentShortest);
 }
 
 if (require.main === module) {
