@@ -27,26 +27,44 @@
 //   return hash.closed - hash.open;
 // }
 
+// function balancingParentheses(string) {
+//   let openNeeded = 0; // Keeps track of open parentheses needed
+//   let closeNeeded = 0; // Keeps track of close parentheses needed
+
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i] === "(") {
+//       openNeeded += 1;
+//     } else if (string[i] === ")") {
+//       if (openNeeded > 0) {
+//         // We have a matching open parenthesis, so reduce openNeeded
+//         openNeeded -= 1;
+//       } else {
+//         // No open parenthesis to match, we need an extra open parenthesis
+//         closeNeeded += 1;
+//       }
+//     }
+//   }
+
+//   // Total adjustments needed is the sum of unmatched opens and unmatched closes
+//   return openNeeded + closeNeeded;
+// }
+
 function balancingParentheses(string) {
-  let openNeeded = 0; // Keeps track of open parentheses needed
-  let closeNeeded = 0; // Keeps track of close parentheses needed
+  let openNeeded = 0;
+  let closedNeeded = 0;
 
   for (let i = 0; i < string.length; i++) {
     if (string[i] === "(") {
-      openNeeded += 1;
+      closedNeeded += 1;
     } else if (string[i] === ")") {
-      if (openNeeded > 0) {
-        // We have a matching open parenthesis, so reduce openNeeded
-        openNeeded -= 1;
+      if (closedNeeded > 0) {
+        closedNeeded -= 1;
       } else {
-        // No open parenthesis to match, we need an extra open parenthesis
-        closeNeeded += 1;
+        openNeeded += 1;
       }
     }
   }
-
-  // Total adjustments needed is the sum of unmatched opens and unmatched closes
-  return openNeeded + closeNeeded;
+  return openNeeded + closedNeeded;
 }
 
 console.log(balancingParentheses("(()"));
