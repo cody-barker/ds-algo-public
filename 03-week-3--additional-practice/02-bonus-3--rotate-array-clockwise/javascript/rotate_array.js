@@ -1,6 +1,20 @@
+// function rotateArray(arr, k) {
+//   const rotations = k % arr.length;
+//   const removed = arr.splice(arr.length - rotations, rotations);
+
+//   return removed.concat(arr);
+// }
+
 function rotateArray(arr, k) {
-  // type your code here
+  const rotations = k % arr.length;
+  //slice end of array, then concat on the beginning of the array
+  return arr.slice(-rotations).concat(arr.slice(0, -rotations));
 }
+
+// function rotateArray(arr, k) {
+//   const rotations = k % arr.length;
+//   return arr.slice(-rotations).concat(arr.slice(0, -rotations));
+// }
 
 if (require.main === module) {
   // add your own tests in here

@@ -1,27 +1,60 @@
-function findShortestStringRecursive(arr) {
-  if (arr.length === 1) {
-    return arr[0];
+// function findShortestStringRecursive(arr) {
+//   if (arr.length === 1) {
+//     return arr[0];
+//   }
+
+//   const result = findShortestStringRecursive(arr.slice(1));
+
+//   return arr[0].length <= result.length ? arr[0] : result;
+// }
+
+// function findShortestStringRecursive(arr) {
+//   if (arr.length === 1) {
+//     return arr[0]
+//   }
+
+//   const result = findShortestStringRecursive(arr.slice(1))
+
+//   return arr[0].length <= result.length ? arr[0] : result
+// }
+
+// function findShortestStringRecursive(arr) {
+//   if (arr.length === 1) {
+//     return arr[0];
+//   }
+//   const result = findShortestStringRecursive(arr.slice(1));
+//   return arr[0].length <= result.length ? arr[0] : result;
+// }
+
+function findShortestStringRecursive(arr, index = 0, currentShortest = arr[0]) {
+  if (index === arr.length) {
+    return currentShortest;
   }
 
-  const result = findShortestStringRecursive(arr.slice(1));
+  if (arr[index].length < currentShortest.length) {
+    currentShortest = arr[index];
+  }
 
-  return arr[0].length <= result.length ? arr[0] : result;
+  return findShortestStringRecursive(arr, ++index, currentShortest);
 }
 
 if (require.main === module) {
   // add your own tests in here
   console.log("Expecting: 'a'");
-  console.log("=>", findShortestStringRecursive(['aaa', 'a', 'bb', 'ccc']));
+  console.log("=>", findShortestStringRecursive(["aaa", "a", "bb", "ccc"]));
 
   console.log("");
 
   console.log("Expecting: 'hi'");
-  console.log("=>", findShortestStringRecursive(['cat', 'hi', 'dog', 'an']));
+  console.log("=>", findShortestStringRecursive(["cat", "hi", "dog", "an"]));
 
   console.log("");
 
   console.log("Expecting: 'lily'");
-  console.log("=>", findShortestStringRecursive(['flower', 'juniper', 'lily', 'dandelion']));
+  console.log(
+    "=>",
+    findShortestStringRecursive(["flower", "juniper", "lily", "dandelion"])
+  );
 }
 
 module.exports = findShortestStringRecursive;

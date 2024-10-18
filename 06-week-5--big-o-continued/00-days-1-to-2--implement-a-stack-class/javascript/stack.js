@@ -41,7 +41,7 @@ class Stack {
     return this.stack.length;
   }
 
-  // return -1 if item not in stack, otherwise integer representing 
+  // return -1 if item not in stack, otherwise integer representing
   // how far it is from the top
   search(target) {
     for (let i = -1; i >= -this.size(); --i) {
@@ -49,7 +49,6 @@ class Stack {
         return Math.abs(i) - 1;
       }
     }
-
     return -1;
   }
 
@@ -64,3 +63,12 @@ if (require.main === module) {
 }
 
 module.exports = Stack;
+
+let stack = new Stack();
+
+stack.push(1);
+stack.push(3);
+stack.push(4);
+stack.push(7);
+
+console.log(stack.search(1));

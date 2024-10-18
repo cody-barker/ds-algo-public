@@ -22,19 +22,31 @@
 //   return recursiveSearch(arr.splice(1), target);
 // }
 
-function recursiveSearch(arr, target) {
-  if (arr.length === 0) {
+// function recursiveSearch(arr, target, index = 0) {
+//   if (index >= arr.length) {
+//     return false;
+//   }
+
+//   if (arr[index] === target) {
+//     return true;
+//   }
+
+//   return recursiveSearch(arr, target, ++index);
+// }
+
+function recursiveSearch(arr, target, index = 0) {
+  if (index >= arr.length) {
     return false;
   }
 
-  if (arr[0] === target) {
+  if (arr[index] === target) {
     return true;
   }
 
-  return recursiveSearch(arr.splice(1), target);
+  return recursiveSearch(arr, target, ++index);
 }
 
-console.log([1, 2, 3].splice(1));
+// console.log([1, 2, 3].splice(1));
 
 //start with a base case to end the stack
 //start with arr[0], if not equal to target, call again and iterate to arr[1] until end of arr

@@ -3,7 +3,26 @@
 // }
 
 function selectionSort(arr) {
-  return arr.sort((a, b) => a - b);
+  // Loop through the entire array
+  for (let i = 0; i < arr.length; i++) {
+    // Assume the current index is the minimum
+    let minIndex = i;
+
+    // Check the rest of the array for a smaller element
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[minIndex]) {
+        // If a smaller element is found, update the minimum index
+        minIndex = j;
+      }
+    }
+
+    // If the minimum index has changed, swap the elements
+    if (minIndex !== i) {
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    }
+  }
+
+  return arr; // Return the sorted array
 }
 
 if (require.main === module) {
@@ -27,7 +46,7 @@ if (require.main === module) {
   }
   const endTime = Date.now();
 
-  const averageRuntime = endTime - startTime / 2000;
+  const averageRuntime = (endTime - startTime) / 2000;
   console.log("Average runtime:", averageRuntime, "milliseconds");
 }
 

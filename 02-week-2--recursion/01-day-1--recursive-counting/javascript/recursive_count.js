@@ -16,6 +16,16 @@
 
 // }
 
+// function recursiveCount(num = 0) {
+//   if (num >= 10) {
+//     return;
+//   }
+//   console.log(num);
+//   recursiveCount(++num);
+// }
+
+//write the base case
+
 function recursiveCount(num = 0) {
   if (num >= 10) {
     return;
@@ -23,8 +33,6 @@ function recursiveCount(num = 0) {
   console.log(num);
   recursiveCount(++num);
 }
-
-//write the base case
 
 if (require.main === module) {
   recursiveCount();

@@ -5,12 +5,14 @@ Space complexity measures how much working memory an algorithm requires. Specifi
 Just like time complexity, we calculate space complexity when we're considering competing solutions or when we have specific space requirements we must meet. In game development, for example, engineers are often allocated upper limits for how much space each process may use, such as running the audio engine or rendering certain types of effects.
 
 If you're still struggling with the concept of time complexity, you might want to take 15 minutes to research Big O and get more comfortable with it before moving forward. Here are two resources you might wisht to read:
+
 - [Interview Cake: Big O Notation](https://www.interviewcake.com/article/java/big-o-notation-time-and-space-complexity)
 - [Rob Bell: A Beginner's Guide to Big O Notation](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/)
 
 ## Refresher
 
 The important things to remember when calculating time complexity are the same for space complexity:
+
 - Calculate for the worst case
 - Focus on the weakest link (the part that will take up the most space)
 - Ignore the other details
@@ -50,7 +52,7 @@ function binary_search(array, target):
 
   if middle == target:
     return true
-  
+
   if middle < target:
     return binary_search(left half of array)
   else:
@@ -64,13 +66,13 @@ Each time it recurses it cuts the input array in half. If you recall from the ti
 Since the above method is recursive, we can think of the space in terms of the number of stack frames required for any input. If the target value isn't in the input array, the number of frames will be as follows:
 
 | Input Length | Frames |
-|--------|--------|
-| 1 | 1 |
-| 2 | 2 |
-| 3 | 2 |
-| 4 | 3 |
-| 5 | 3 |
-| 10 | 4 |
+| ------------ | ------ |
+| 1            | 1      |
+| 2            | 2      |
+| 3            | 2      |
+| 4            | 3      |
+| 5            | 3      |
+| 10           | 4      |
 
 ### Linear Space O(n)
 
@@ -84,7 +86,7 @@ function sum_array(array):
   return sum
 ```
 
-This procedure stores an integer variable and requires an input array to run. If we were to code this fully using a `for` or `while` loop, we'd also have to store another variable for the iteration (the one commonly known as `i`). 
+This procedure stores an integer variable and requires an input array to run. If we were to code this fully using a `for` or `while` loop, we'd also have to store another variable for the iteration (the one commonly known as `i`).
 
 The integer variables, such as `sum` and `i` would require constant space, since they'll only ever store a single integer each. The input array, however, will have varying space requirements because its length is not fixed. The function could be called with an array that's empty or contains 1,000 elements. Therefore, this procedure requires O(n) space: the input array is the weakest link!
 
@@ -99,13 +101,13 @@ function quadratic_recurse(num):
   function recurse(count):
     if count == total_times:
       return
-    
+
     recurse(count + 1)
 
   recurse(0)
 ```
 
-This function is recursive and requires quadratic space. Once again, we can think of the required space in terms of total stack frames. If the input number is 1, 1 stack frame is required. If the input is 2, 4 stack frames, and if the input is 4, 16 stack frames are required. 
+This function is recursive and requires quadratic space. Once again, we can think of the required space in terms of total stack frames. If the input number is 1, 1 stack frame is required. If the input is 2, 4 stack frames, and if the input is 4, 16 stack frames are required.
 
 ## Recursive Gotcha
 
@@ -118,7 +120,7 @@ function big_sum(array):
   function add(count):
     if count == array length:
       return
-    
+
     iterate over each element in array:
       total = total + element
       add(count + 1)
@@ -127,7 +129,7 @@ function big_sum(array):
   return total
 ```
 
-The above function adds array length number of frames to the stack for every element in the input array. Let's say the input array is `[1, 2]`. `add` will recurse with a `count` of 1, and will then recurse again with a `count` of 2, so two frames are on the stack. At this point the `count` equals the array length, so the frame will be popped from the stack, reducing its size. As it turns out, the largest number of frames on the stack (or the deepest depth), equals O(n) - i.e. the length fo the input array - for this function.
+The above function adds array length number of frames to the stack for every element in the input array. Let's say the input array is `[1, 2]`. `add` will recurse with a `count` of 1, and will then recurse again with a `count` of 2, so two frames are on the stack. At this point the `count` equals the array length, so the frame will be popped from the stack, reducing its size. As it turns out, the largest number of frames on the stack (or the deepest depth), equals O(n) - i.e. the length of the input array - for this function.
 
 ## Conclusion
 
