@@ -1,11 +1,26 @@
 class LinkedList {
-  constructor() {
-
+  constructor(head = null) {
+    this.head = head;
   }
 
-  iterate() {
+  iterate(callback) {
+    let count = 0;
+    let temp = this.head;
 
+    while (temp !== null) {
+      const result = callback(temp, count);
+
+      if (result === true) {
+        return temp;
+      }
+
+      ++count;
+      temp = temp.next;
+    }
+
+    return this.head;
   }
+
 
   // print each node's value on its own line
   // use your iterate method to be DRY! Don't get caught in the code rain, brrr.
@@ -60,8 +75,9 @@ class LinkedList {
 }
 
 class Node {
-  constructor() {
-    
+  constructor(value = null, next = null) {
+    this.value = value;
+    this.next = next;
   }
 }
 
