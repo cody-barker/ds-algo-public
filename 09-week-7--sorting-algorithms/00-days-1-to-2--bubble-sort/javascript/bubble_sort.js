@@ -1,5 +1,22 @@
 function bubbleSort(arr) {
-  // type your code here
+  function swap(arr) {
+    let count = 0;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+        count++;
+      }
+    }
+    return count;
+  }
+
+  let swaps = swap(arr);
+
+  while (swaps > 0) {
+    swaps = swap(arr);
+  }
+
+  return arr;
 }
 
 if (require.main === module) {
