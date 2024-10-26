@@ -19,6 +19,29 @@ function bubbleSort(arr) {
   return arr;
 }
 
+// function bubbleSort(arr) {
+//   let n = arr.length;
+
+//   while (n > 0) {
+//     let swapped = false;
+
+//     for (let i = 0; i < n - 1; i++) {
+//       if (arr[i] > arr[i + 1]) {
+//         [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+//         swapped = true;
+//       }
+//     }
+
+//     // If no swaps happened, the array is sorted
+//     if (!swapped) break;
+
+//     // Reduce the range for the next pass
+//     n--;
+//   }
+
+//   return arr;
+// }
+
 if (require.main === module) {
   // add your own tests in here
   console.log("Expecting: [1, 2, 3, 4]");
