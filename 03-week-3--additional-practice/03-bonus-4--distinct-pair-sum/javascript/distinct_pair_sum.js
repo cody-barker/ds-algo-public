@@ -72,11 +72,29 @@ const { setDefaultAutoSelectFamily } = require("net");
 //   return Array.from(pairs).map((pair) => pair.split(",").map(Number));
 // }
 
+// function distinctPairSum(arr, k) {
+//   const seen = new Set();
+//   const pairs = new Set();
+
+//   for (const num of arr) {
+//     const complement = k - num;
+
+//     if (seen.has(complement)) {
+//       const sortedPair = [num, complement].sort((a, b) => a - b).toString();
+//       pairs.add(sortedPair);
+//     }
+
+//     seen.add(num);
+//   }
+
+//   return Array.from(pairs).map((pair) => pair.split(",").map(Number));
+// }
+
 function distinctPairSum(arr, k) {
   const seen = new Set();
   const pairs = new Set();
 
-  for (const num of arr) {
+  for (const num in arr) {
     const complement = k - num;
 
     if (seen.has(complement)) {

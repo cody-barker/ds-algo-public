@@ -5,6 +5,7 @@ function rotateArray(arr, k) {
   return removed.concat(arr);
 }
 
+
 if (require.main === module) {
   // add your own tests in here
   console.log("Expecting: [4, 1, 2, 3]");

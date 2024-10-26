@@ -14,11 +14,28 @@
 //if next string is shorter, make it the new shortest
 //return shortest
 
+// function findShortestString(arr) {
+//   let shortestString = arr[0];
+//   for (let str of arr) {
+//     if (str.length < shortestString.length) {
+//       shortestString = str;
+//     }
+//   }
+//   return shortestString;
+// }
+
+//return shortest string
+//if 2 strings of same length, return the first one
+
+//create a variable called shortestString
+//iterate over each string in the arr, and compare its length to shortestString.length
+//if the strings length is shorter than shortestString.length, set <short></short>estString = string
+
 function findShortestString(arr) {
   let shortestString = arr[0];
-  for (let str of arr) {
-    if (str.length < shortestString.length) {
-      shortestString = str;
+  for (let element of arr) {
+    if (element.length < shortestString.length) {
+      shortestString = element;
     }
   }
   return shortestString;
