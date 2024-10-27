@@ -6,18 +6,28 @@ class Node {
   }
 }
 
-function treeTraversalInorder(root) {
-  function treeTraversalInorder(root, result = []) {
-    if (root === null) {
-      return [];
-    }
+// function treeTraversalInorder(root, result = []) {
+//   if (root === null) {
+//     return [];
+//   }
 
-    treeTraversalInorder(root.left, result);
-    result.push(root.value);
-    treeTraversalInorder(root.right, result);
+//   treeTraversalInorder(root.left, result);
+//   result.push(root.value);
+//   treeTraversalInorder(root.right, result);
 
-    return result;
+//   return result;
+// }
+
+function treeTraversalInorder(root, result = []) {
+  if (root === null) {
+    return [];
   }
+
+  treeTraversalInorder(root.left, result);
+  result.push(root.value);
+  treeTraversalInorder(root.right, result);
+
+  return result;
 }
 
 if (require.main === module) {
