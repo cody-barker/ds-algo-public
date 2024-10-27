@@ -7,24 +7,25 @@ class Node {
 }
 
 function levelOrderTraversal(root) {
-  // type your code here
-  // traverse each level of the tree and concat the values of the nodes from left to right in a result array
-  // start with the root, if left, push left value, if right, push right value
-  // if left, move to left.left and then left.right
-  // if right, move to right.left and then right.right, repeat this process until the node is a leaf
-  // might need to track parent node, and child left, child right nodes
+  let queue = root !== null ? [root] : [];
+  let result = [];
 
-  let parent = root[0];
-  let childLeft = parent.left; //will be truthy or null
-  let childRight = parent.right; //will be truthy or null
-  let result = [...parent.value, ...childLeft.value, ...childRight.value];
+  while (queue.length) {
+    const node = queue.shift();
 
-  // while (childLeft || childRight) {}
+    result.push(node);
 
-  return result;
+    if (node.left) {
+      queue.push(node.left);
+    }
+
+    if (node.right) {
+      queue.push(node.right);
+    }
+  }
+
+  return result.map((node) => node.value);
 }
-
-levelOrderTraversal([1, 2, 3]);
 
 if (require.main === module) {
   let root = new Node(1, new Node(2), new Node(3));
