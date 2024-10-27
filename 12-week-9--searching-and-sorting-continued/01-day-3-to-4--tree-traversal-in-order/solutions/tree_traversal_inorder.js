@@ -19,6 +19,10 @@ function treeTraversalInorder(root, result = []) {
   return result;
 }
 
+//result = [1, 2, 3, 4, 5, 6, 7]
+/**
+ */
+
 // Iterative solution
 // function treeTraversalInorder(root) {
 //   const queue = root ? [root] : [];

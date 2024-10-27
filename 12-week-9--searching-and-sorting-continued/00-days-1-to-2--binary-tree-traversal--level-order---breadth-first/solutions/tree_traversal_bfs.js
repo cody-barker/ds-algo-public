@@ -6,6 +6,28 @@ class Node {
   }
 }
 
+// function levelOrderTraversal(root) {
+//   let queue = root !== null ? [root] : [];
+//   let result = [];
+
+//   while (queue.length) {
+//     const node = queue.shift();
+
+//     result.push(node);
+
+//     if (node.left) {
+//       queue.push(node.left);
+//     }
+
+//     if (node.right) {
+//       queue.push(node.right);
+//     }
+//     debugger;
+//   }
+
+//   return result.map((node) => node.value);
+// }
+
 function levelOrderTraversal(root) {
   let queue = root !== null ? [root] : [];
   let result = [];
@@ -24,7 +46,7 @@ function levelOrderTraversal(root) {
     }
   }
 
-  return result.map(node => node.value);
+  return result.map((node) => node.value);
 }
 
 if (require.main === module) {
@@ -50,28 +72,50 @@ if (require.main === module) {
   console.log("");
 
   root = new Node(10);
-  
+
   console.log("Expecting: [10]");
   console.log(levelOrderTraversal(root));
 
   console.log("");
 
-  root = new Node(10, new Node(9, new Node(8, new Node(7, new Node(32)), new Node(6, null, new Node(33))), new Node(12, new Node(11), new Node(40))), new Node(11, new Node(20, new Node(4), new Node(90)), new Node(30, new Node(9), new Node(89, null, new Node(90, null, new Node(34))))));
-  
-  console.log("Expecting: [10, 9, 11, 8, 12, 20, 30, 7, 6, 11, 40, 4, 90, 9, 89, 32, 33, 90, 34]");
+  root = new Node(
+    10,
+    new Node(
+      9,
+      new Node(8, new Node(7, new Node(32)), new Node(6, null, new Node(33))),
+      new Node(12, new Node(11), new Node(40))
+    ),
+    new Node(
+      11,
+      new Node(20, new Node(4), new Node(90)),
+      new Node(
+        30,
+        new Node(9),
+        new Node(89, null, new Node(90, null, new Node(34)))
+      )
+    )
+  );
+
+  console.log(
+    "Expecting: [10, 9, 11, 8, 12, 20, 30, 7, 6, 11, 40, 4, 90, 9, 89, 32, 33, 90, 34]"
+  );
   console.log(levelOrderTraversal(root));
 
   console.log("");
 
-  root = new Node(10, null, new Node(11, null, new Node(12, null, new Node(12))));
-  
+  root = new Node(
+    10,
+    null,
+    new Node(11, null, new Node(12, null, new Node(12)))
+  );
+
   console.log("Expecting: [10, 11, 12, 12]");
   console.log(levelOrderTraversal(root));
 }
 
 module.exports = {
   Node,
-  levelOrderTraversal
+  levelOrderTraversal,
 };
 
 // Please add your pseudocode to this file
@@ -83,7 +127,7 @@ module.exports = {
 // loop until the queue is empty:
 //   store first node in queue in variable node
 //   add node to result array
-//   add node's left and right nodes to queue if not falsy, in that order  
+//   add node's left and right nodes to queue if not falsy, in that order
 //
 // return result
 /****************************************************************************************** */
