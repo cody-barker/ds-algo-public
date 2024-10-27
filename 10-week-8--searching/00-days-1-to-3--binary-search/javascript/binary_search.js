@@ -30,6 +30,7 @@ function binarySearchIndex(arr, target) {
   let right = arr.length - 1;
 
   while (left <= right) {
+    debugger;
     // Calculate middle index
     // Using (left + right) >>> 1 avoids integer overflow
     // compared to Math.floor((left + right) / 2)
@@ -54,30 +55,45 @@ function binarySearchIndex(arr, target) {
   return -1;
 }
 
-if (require.main === module) {
-  // add your own tests in here
-  console.log("Expecting: true");
-  console.log("=>", binarySearchIndex([1, 2, 3], 3));
+binarySearchIndex([1, 2, 3, 4, 5, 6], 2);
 
-  console.log("");
+//test
 
-  console.log("Expecting: false");
-  console.log("=>", binarySearchIndex([3, 5, 9], 10));
+// if (require.main === module) {
+//   // add your own tests in here
+//   console.log("Expecting: 1");
+//   console.log("=>", binarySearchIndex([1, 2, 3, 4, 5, 6], 2));
+//   /*
+//   Initialization
 
-  // UNCOMMENT FOR BONUS
-  // console.log("");
-  // console.log("Expecting: 0");
-  // console.log("=>", binarySearchIndex([1, 2, 3], 1));
+//   left = 0
+//   right = 6 - 1 = 5
 
-  // console.log("");
+//   While loop
+//   0 <= 5 is true
+//   mid = 2
 
-  // console.log("Expecting: -1");
-  // console.log("=>", binarySearchIndex([4, 7, 20], 100));
-}
+//   */
 
-module.exports = {
-  // binarySearch,
-  binarySearchIndex,
-};
+//   console.log("");
+
+//   console.log("Expecting: 4");
+//   console.log("=>", binarySearchIndex([1, 2, 3, 4, 5, 6], 5));
+
+//   // UNCOMMENT FOR BONUS
+//   // console.log("");
+//   // console.log("Expecting: 0");
+//   // console.log("=>", binarySearchIndex([1, 2, 3], 1));
+
+//   // console.log("");
+
+//   // console.log("Expecting: -1");
+//   // console.log("=>", binarySearchIndex([4, 7, 20], 100));
+// }
+
+// module.exports = {
+//   // binarySearch,
+//   binarySearchIndex,
+// };
 
 // Add a written explanation of your solution
