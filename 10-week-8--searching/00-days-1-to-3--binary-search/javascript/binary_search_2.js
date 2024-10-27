@@ -3,6 +3,7 @@ function binarySearchIndex(arr, target) {
   let right = arr.length - 1;
 
   while (left <= right) {
+    debugger;
     // Calculate middle index
     // Using (left + right) >>> 1 avoids integer overflow
     // compared to Math.floor((left + right) / 2)
