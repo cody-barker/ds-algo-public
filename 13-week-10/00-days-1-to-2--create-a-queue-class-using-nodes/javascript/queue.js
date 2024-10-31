@@ -71,7 +71,17 @@ class Queue {
 
   // RETURN INTEGER REPRESENTING HOW FAR TARGET IS FROM FRONT OF QUEUE
   // IF TARGET ISN'T IN QUEUE, RETURN -1
-  search(target) {}
+  search(target) {
+    let node = this.front;
+    let count = 0;
+
+    while (node && node.data != target) {
+      count++;
+      node = node.next;
+    }
+
+    return node.data == target ? count : -1;
+  }
 }
 
 if (require.main === module) {
