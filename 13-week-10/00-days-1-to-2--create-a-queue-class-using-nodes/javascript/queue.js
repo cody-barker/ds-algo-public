@@ -52,7 +52,9 @@ class Queue {
   }
 
   // RETURN TRUE IF QUEUE IS EMPTY, OTHERWISE FALSE
-  isEmpty() {}
+  isEmpty() {
+    return !this.front;
+  }
 
   // RETURN NUMBER OF NODES IN QUEUE, E.G. 10
   size() {}
