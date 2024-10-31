@@ -35,11 +35,60 @@ class DoublyLinkedList {
 
   // REMOVE THE TAIL NODE FROM THE LIST
   // AND RETURN IT
-  removeTail() {}
+  removeTail() {
+    if (!this.tail) {
+      return null;
+    }
+
+    const oldTail = this.tail;
+    this.tail = oldTail.prev;
+
+    if (this.tail) {
+      this.tail.next = null;
+    } else {
+      this.head = this.tail;
+    }
+
+    return oldTail;
+  }
 
   // REMOVE THE GIVEN NODE FROM THE LIST
   // AND THEN RETURN IT
-  removeNode(node) {}
+  removeNode(node) {
+    if (!node) {
+      return null;
+    }
+
+    // If the node to be removed is the head
+    if (node === this.head) {
+      this.head = node.next;
+      if (this.head) {
+        this.head.prev = null;
+      } else {
+        // If the list had only one element, update tail as well
+        this.tail = null;
+      }
+    }
+    // If the node to be removed is the tail
+    else if (node === this.tail) {
+      this.tail = node.prev;
+      this.tail.next = null;
+    }
+    // If the node is in the middle
+    else {
+      const previousNode = node.prev;
+      const nextNode = node.next;
+
+      if (previousNode) previousNode.next = nextNode;
+      if (nextNode) nextNode.prev = previousNode;
+    }
+
+    // Clear the removed node's pointers
+    node.next = null;
+    node.prev = null;
+
+    return node;
+  }
 
   // MOVE THE GIVEN NODE FROM ITS LOCATION TO THE HEAD
   // OF THE LIST
