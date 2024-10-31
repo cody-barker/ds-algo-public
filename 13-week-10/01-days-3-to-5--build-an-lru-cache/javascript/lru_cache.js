@@ -15,26 +15,35 @@ class DoublyLinkedList {
 
   // ADD THE NODE TO THE HEAD OF THE LIST
   addHead(node) {
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+      return;
+    }
 
+    //set oldHead
+    //change oldHead prev
+    const oldHead = this.head;
+    oldHead.prev = node;
+
+    //change head
+    //set new head.next
+    this.head = node;
+    node.next = oldHead;
+    node.prev = null;
   }
 
   // REMOVE THE TAIL NODE FROM THE LIST
   // AND RETURN IT
-  removeTail() {
-
-  }
+  removeTail() {}
 
   // REMOVE THE GIVEN NODE FROM THE LIST
   // AND THEN RETURN IT
-  removeNode(node) {
-
-  }
+  removeNode(node) {}
 
   // MOVE THE GIVEN NODE FROM ITS LOCATION TO THE HEAD
   // OF THE LIST
-  moveNodeToHead(node) {
-
-  }
+  moveNodeToHead(node) {}
 }
 
 class LRUCache {
@@ -48,20 +57,16 @@ class LRUCache {
   // RETRIEVE THE NODE FROM THE CACHE USING THE KEY
   // IF THE NODE IS IN THE CACHE, MOVE IT TO THE HEAD OF THE LIST AND RETURN IT
   // OTHERWISE RETURN -1
-  get(key) {
-
-  }
+  get(key) {}
 
   // ADD THE GIVEN KEY AND VALUE TO THE CACHE
-  // IF THE CACHE ALREADY CONTAINS THE KEY, UPDATE ITS VALUE AND MOVE IT TO 
+  // IF THE CACHE ALREADY CONTAINS THE KEY, UPDATE ITS VALUE AND MOVE IT TO
   // THE HEAD OF THE LIST
   // IF THE CACHE DOESN'T CONTAIN THE KEY, ADD IT TO THE CACHE AND PLACE IT
   // AT THE HEAD OF THE LIST
   // IF THE CACHE IS FULL, REMOVE THE LEAST RECENTLY USED ITEM BEFORE ADDING
   // THE NEW DATA TO THE CACHE
-  put(key, value) {
-
-  }
+  put(key, value) {}
 }
 
 if (require.main === module) {
@@ -71,7 +76,7 @@ if (require.main === module) {
 module.exports = {
   Node,
   DoublyLinkedList,
-  LRUCache
+  LRUCache,
 };
 
 // Please add your pseudocode to this file
