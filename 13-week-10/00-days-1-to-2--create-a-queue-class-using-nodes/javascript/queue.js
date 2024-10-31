@@ -75,12 +75,16 @@ class Queue {
     let node = this.front;
     let count = 0;
 
-    while (node && node.data != target) {
+    while (node) {
+      if (node.data === target) {
+        return count;
+      }
+
       count++;
       node = node.next;
     }
 
-    return node.data == target ? count : -1;
+    return -1;
   }
 }
 
