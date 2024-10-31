@@ -57,7 +57,17 @@ class Queue {
   }
 
   // RETURN NUMBER OF NODES IN QUEUE, E.G. 10
-  size() {}
+  size() {
+    let node = this.front;
+    let count = 0;
+
+    while (node) {
+      node = node.next;
+      count++;
+    }
+
+    return count;
+  }
 
   // RETURN INTEGER REPRESENTING HOW FAR TARGET IS FROM FRONT OF QUEUE
   // IF TARGET ISN'T IN QUEUE, RETURN -1
