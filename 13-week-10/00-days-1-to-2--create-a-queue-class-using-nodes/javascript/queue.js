@@ -48,7 +48,7 @@ class Queue {
 
   // RETURN NODE AT FRONT WITHOUT REMOVING IT
   peek() {
-    
+    return this.front;
   }
 
   // RETURN TRUE IF QUEUE IS EMPTY, OTHERWISE FALSE
