@@ -92,7 +92,10 @@ class DoublyLinkedList {
 
   // MOVE THE GIVEN NODE FROM ITS LOCATION TO THE HEAD
   // OF THE LIST
-  moveNodeToHead(node) {}
+  moveNodeToHead(node) {
+    const removed = this.removeNode(node);
+    this.addHead(removed);
+  }
 }
 
 class LRUCache {
