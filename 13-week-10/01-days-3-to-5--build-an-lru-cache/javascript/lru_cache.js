@@ -33,6 +33,23 @@ class DoublyLinkedList {
     node.prev = null;
   }
 
+  removeHead() {
+    if (!this.head) {
+      return null;
+    }
+
+    const oldHead = this.head; // Store the current head to return later
+    this.head = this.head.next; // Move head to the next node
+
+    if (this.head) {
+      this.head.prev = null; // Remove reference to the old head
+    } else {
+      this.tail = null; // If the list is now empty, set tail to null
+    }
+
+    return oldHead; // Return the removed node
+  }
+
   // REMOVE THE TAIL NODE FROM THE LIST
   // AND RETURN IT
   removeTail() {
@@ -61,16 +78,7 @@ class DoublyLinkedList {
         break;
       case this.head:
         // this is a good candidate for a helper method!
-        this.head = node.next;
-
-        if (this.head) {
-          this.head.prev = null;
-        }
-
-        if (!this.head || !this.head.next) {
-          this.tail = this.head;
-        }
-
+        this.removeHead();
         break;
       default:
         if (node.prev) {
@@ -88,8 +96,12 @@ class DoublyLinkedList {
   // MOVE THE GIVEN NODE FROM ITS LOCATION TO THE HEAD
   // OF THE LIST
   moveNodeToHead(node) {
-    const removed = this.removeNode(node);
-    this.addHead(removed);
+    if (node === this.head) {
+      return;
+    }
+
+    this.removeNode(node);
+    this.addHead(node);
   }
 }
 
