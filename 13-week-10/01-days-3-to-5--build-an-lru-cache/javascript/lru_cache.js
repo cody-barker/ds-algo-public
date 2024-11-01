@@ -110,13 +110,24 @@ class LRUCache {
     this.limit = limit;
     this.size = 0;
     this.hash = {};
-    this.list = new DoublyLinkedList(limit);
+    this.list = new DoublyLinkedList();
   }
 
   // RETRIEVE THE NODE FROM THE CACHE USING THE KEY
   // IF THE NODE IS IN THE CACHE, MOVE IT TO THE HEAD OF THE LIST AND RETURN IT
   // OTHERWISE RETURN -1
-  get(key) {}
+  get(key) {
+    //check the hash for the provided key
+    //if it exists, call this.list.addHead(key[value]) and return the node
+    //if it doesn't exist, return -1
+    const found = this.hash[key];
+
+    if (found) {
+      this.list.moveNodeToHead(found);
+      return found;
+    }
+    return -1;
+  }
 
   // ADD THE GIVEN KEY AND VALUE TO THE CACHE
   // IF THE CACHE ALREADY CONTAINS THE KEY, UPDATE ITS VALUE AND MOVE IT TO
@@ -125,7 +136,30 @@ class LRUCache {
   // AT THE HEAD OF THE LIST
   // IF THE CACHE IS FULL, REMOVE THE LEAST RECENTLY USED ITEM BEFORE ADDING
   // THE NEW DATA TO THE CACHE
-  put(key, value) {}
+put(key, value) {
+    const found = this.hash[key];
+
+    if (found) {
+      found.data = value;
+      this.list.moveNodeToHead(found);
+      return;
+    }
+
+    if (this.limit === this.size) {
+      const tail = this.list.removeTail();
+      delete this.hash[tail.key];
+      --this.size;
+    }
+
+    this._addEntry(key, value);
+  }
+
+  _addEntry(key, value) {
+    const node = new Node(value, key);
+    this.list.addHead(node);
+    this.hash[key] = node;
+    ++this.size;
+  }
 }
 
 if (require.main === module) {
