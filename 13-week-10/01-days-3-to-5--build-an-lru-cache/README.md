@@ -34,7 +34,7 @@ It's easier to think about how these data structures work together if we first s
 - A key in the hash always points to a node in the doubly linked list
 - Items in the doubly linked list are always ordered from most recenlty used (at the head) to least recently used (at the tail)
 - If an item is being added to a cache that's full, the least recently used item is removed from both the hash and list (at the tail)
-  - The list tells us which item was least recently used since it will always be at the tail
+- The list tells us which item was least recently used since it will always be at the tail
 - If an item is being retrieved from the cache, it is moved to the head of the list and the hash remains unchanged
 
 Let's say we start with an empty cache. We want the recipe associated with an item that has an ID of "cake". First, we check if "cake" is in the cache by asking the hash if it has a key of "cake". The cache is empty, so the data is retrieved from the database. Next, the LRU cache creates a new node, which stores the recipe. The node is added to the doubly linked list as its head and tail since the list contains only one item. Next, a key of "cake" is added to the hash, and its value is set to the node that was just created. At the end of this operation we have a list with a single node in it, and a hash with a key of "cake" pointing to that node.
