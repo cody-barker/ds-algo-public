@@ -34,7 +34,7 @@ function tableToGraph(friends) {
 
   //iterate over the data
 
-  for (idx = 0; idx < data.length; idx += 2) {
+  for (let idx = 0; idx < data.length; idx += 2) {
     const vertex = data[idx];
     const friendsList = data[idx + 1] !== "" ? data[idx + 1].split(", ") : [];
 
