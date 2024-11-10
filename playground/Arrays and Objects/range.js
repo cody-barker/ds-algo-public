@@ -1,15 +1,23 @@
-function range(start, end) {
+function range(start, end, step = 1) {
   let range = [];
 
-  while (start <= end) {
+  if (step === 0) {
+    throw new Error("Step cannot be zero.");
+  }
+
+  if ((step > 0 && start > end) || (step < 0 && start < end)) {
+    return range; // return an empty array if the range cannot be reached with the given step
+  }
+
+  while ((step > 0 && start <= end) || (step < 0 && start >= end)) {
     range.push(start);
-    start++;
+    start += step;
   }
 
   return range;
 }
 
-console.log(range(1, 10));
+console.log(range(2, 5, 3));
 
 function sum(range) {
   let sum = 0;
@@ -21,6 +29,6 @@ function sum(range) {
   return sum;
 }
 
-let numRange = [1, 10];
+let numRange = [10, 1];
 
-console.log(sum(range(...numRange)));
+console.log(sum(range(...numRange, -1)));
