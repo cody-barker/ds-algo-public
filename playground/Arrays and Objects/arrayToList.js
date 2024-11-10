@@ -10,4 +10,18 @@ function arrayToList(array) {
 
 console.log(arrayToList([1, 2, 3]));
 
-function listToArray(list) {}
+function listToArray(list) {
+  let array = [];
+  let currentNode = list;
+
+  while (currentNode) {
+    array.push(currentNode.value);
+    currentNode = currentNode.rest;
+  }
+
+  return array;
+}
+
+const list = arrayToList([1, 2, 3]);
+console.log(list);
+console.log(listToArray(list)); // [1, 2, 3]
