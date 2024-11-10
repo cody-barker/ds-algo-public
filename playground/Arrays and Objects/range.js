@@ -14,7 +14,7 @@ console.log(range(1, 10));
 function sum(range) {
   let sum = 0;
 
-  for (num of range) {
+  for (let num of range) {
     sum += num;
   }
 
@@ -23,4 +23,4 @@ function sum(range) {
 
 let numRange = [1, 10];
 
-console.log(sum(range(numRange)));
+console.log(sum(range(...numRange)));
