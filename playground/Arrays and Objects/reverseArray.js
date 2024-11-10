@@ -11,7 +11,7 @@ function reverseArray(array) {
 console.log(reverseArray([1, 2, 3]));
 
 function reverseArrayInPlace(array) {
-  for (let i = 0; i < array.length / 2; i++) {
+  for (let i = 0; i < Math.floor(array.length / 2); i++) {
     // Swap elements at index i and array.length - 1 - i
     let temp = array[i];
     array[i] = array[array.length - 1 - i];
@@ -20,6 +20,5 @@ function reverseArrayInPlace(array) {
 
   return array;
 }
-
 
 console.log(reverseArrayInPlace([1, 2, 3]));
