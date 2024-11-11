@@ -33,7 +33,7 @@ function nth(list, number) {
     number--;
   }
 
-  return list ? list : undefined;
+  return list;
 }
 
 function nthRecursive(list, element) {
