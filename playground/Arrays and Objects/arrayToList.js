@@ -47,3 +47,29 @@ function nthRecursive(list, element) {
 
   return nthRecursive(list.rest, element);
 }
+
+function deepEqual(a, b) {
+  if (a === b) return true;
+
+  if (
+    a === null ||
+    b === null ||
+    typeof a !== "object" ||
+    typeof b !== "object"
+  ) {
+    return false;
+  }
+
+  let aprops = Object.keys(a);
+  let bprops = Object.keys(b);
+
+  if (aprops.length !== bprops.length) return false;
+
+  for (let prop of aprops) {
+    if (!bprops.includes(prop) || !deepEqual(a[prop], b[prop])) {
+      return false;
+    }
+  }
+
+  return true;
+}
