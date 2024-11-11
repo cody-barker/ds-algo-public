@@ -1,3 +1,6 @@
+const list = arrayToList([1, 2, 3]);
+console.log(nthRecursive(list, 2));
+
 function arrayToList(array) {
   let list = null;
 
@@ -7,8 +10,6 @@ function arrayToList(array) {
 
   return list;
 }
-
-console.log(arrayToList([1, 2, 3]));
 
 function listToArray(list) {
   let array = [];
@@ -22,6 +23,27 @@ function listToArray(list) {
   return array;
 }
 
-const list = arrayToList([1, 2, 3]);
-console.log(list);
-console.log(listToArray(list)); // [1, 2, 3]
+function prepend(element, list) {
+  return { value: element, rest: list };
+}
+
+function nth(list, number) {
+  while (list && number > 0) {
+    list = list.rest;
+    number--;
+  }
+
+  return list ? list : undefined;
+}
+
+function nthRecursive(list, element) {
+  if (!list) {
+    return undefined;
+  }
+
+  if (element === list.value) {
+    return list;
+  }
+
+  return nthRecursive(list.rest, element);
+}
