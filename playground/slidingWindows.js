@@ -1,47 +1,47 @@
-function maxSumSubarray(arr, k) {
-    if (arr.length < k) {
-        return null; // Edge case: if array is smaller than the window size
-    }
+// function maxSumSubarray(arr, k) {
+//     if (arr.length < k) {
+//         return null; // Edge case: if array is smaller than the window size
+//     }
 
-    // Calculate the sum of the first window
-    let maxSum = 0;
-    for (let i = 0; i < k; i++) {
-        maxSum += arr[i];
-    }
+//     // Calculate the sum of the first window
+//     let maxSum = 0;
+//     for (let i = 0; i < k; i++) {
+//         maxSum += arr[i];
+//     }
 
-    let windowSum = maxSum;
+//     let windowSum = maxSum;
     
-    // Slide the window across the array
-    for (let end = k; end < arr.length; end++) {
-        windowSum += arr[end] - arr[end - k]; // Add new element, remove the one going out
-        maxSum = Math.max(maxSum, windowSum); // Update maxSum if windowSum is greater
-    }
+//     // Slide the window across the array
+//     for (let end = k; end < arr.length; end++) {
+//         windowSum += arr[end] - arr[end - k]; // Add new element, remove the one going out
+//         maxSum = Math.max(maxSum, windowSum); // Update maxSum if windowSum is greater
+//     }
 
-    return maxSum;
-}
+//     return maxSum;
+// }
 
-function maximumSubArray(arr, k) {
- // Edge case: if array is smaller than the window size
- if (array.length < k) {
-    return null
- }
+// function maximumSubArray(arr, k) {
+//  // Edge case: if array is smaller than the window size
+//  if (array.length < k) {
+//     return null
+//  }
 
- // Calculate the sum of the first window
- let maxSum = 0;
- for (let i = 0; i < k; i++) {
-    maxSum += array[i];
- }
+//  // Calculate the sum of the first window
+//  let maxSum = 0;
+//  for (let i = 0; i < k; i++) {
+//     maxSum += array[i];
+//  }
 
- let windowSum = maxSum;
- // Slide the window across the array
-for (let end = k; end < array.length; end++) {
-    windowSum += arr[end] - arr[end - k];
-    maxSum = Math.max(maxSum, windowSum)
-}
-    // Add new element, remove the one going out
-    // Update maxSum if windowSum is greater
-return maxSum
-}
+//  let windowSum = maxSum;
+//  // Slide the window across the array
+// for (let end = k; end < array.length; end++) {
+//     windowSum += arr[end] - arr[end - k];
+//     maxSum = Math.max(maxSum, windowSum)
+// }
+//     // Add new element, remove the one going out
+//     // Update maxSum if windowSum is greater
+// return maxSum
+// }
 
 //to find the max subarray with a sliding window
 /**
@@ -57,6 +57,29 @@ return maxSum
  */
 
 // Example usage:
+
+
+function maxSumSubarray(array, k) {
+    if (array.length < k) {
+        return null
+    }
+
+    let maxSum = 0;
+    for (let i = 0; i < k; i++) {
+        maxSum += array[i];
+    }
+
+    let windowSum = maxSum;
+    for (let end = k; end < array.length; end++) {
+        debugger;
+        windowSum += array[end] - array[end - k];
+        maxSum = Math.max(windowSum, maxSum)
+        debugger;
+    }
+
+    return maxSum
+}
+
 const arr = [2, 1, 5, 1, 3, 2];
 const k = 3;
 console.log(maxSumSubarray(arr, k)); // Output: 9, from subarray [5, 1, 3]
