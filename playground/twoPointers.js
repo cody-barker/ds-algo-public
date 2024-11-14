@@ -4,38 +4,15 @@ function hasPairWithSum(arr, target) {
 
     while (left < right) {
         const sum = arr[left] + arr[right];
-
         if (sum === target) {
-            return true; // Pair found
+            return true;
         } else if (sum < target) {
-            left++; // Move left pointer to the right to increase sum
+            left++;
         } else {
-            right--; // Move right pointer to the left to decrease sum
+            right--;
         }
     }
+    return false;
+}     
 
-    return false; // No pair found
-}
-
-//sorted array
-function hasPairWithSum(array, target) {
-    let left = 0;
-    let right = array.length - 1;
-
-    while(left < right) {
-        const sum = arr[left] + arr[right];
-
-        if (sum === target) {
-            return true
-        } else if (sum < target) {
-            left ++;
-        } else right --
-    }
-
-    return false
-}
-
-// Example usage:
-const arr = [1, 2, 3, 4, 6, 8, 9];
-const target = 10;
-console.log(hasPairWithSum(arr, target)); // Output: true, since 1 + 9 or 4 + 6 equals 10
+console.log(hasPairWithSum([1, 2, 3, 4, 6, 8, 9], 10)); // Output: true, since 1 + 9 or 4 + 6 equals 10   
