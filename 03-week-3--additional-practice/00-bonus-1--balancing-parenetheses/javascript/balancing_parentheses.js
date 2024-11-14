@@ -49,6 +49,24 @@
 //   return openNeeded + closeNeeded;
 // }
 
+// function balancingParentheses(string) {
+//   let openNeeded = 0;
+//   let closedNeeded = 0;
+
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i] === "(") {
+//       closedNeeded += 1;
+//     } else if (string[i] === ")") {
+//       if (closedNeeded > 0) {
+//         closedNeeded -= 1;
+//       }
+//     } else {
+//       openNeeded += 1;
+//     }
+//   }
+//   return closedNeeded + openNeeded;
+// }
+
 function balancingParentheses(string) {
   let openNeeded = 0;
   let closedNeeded = 0;

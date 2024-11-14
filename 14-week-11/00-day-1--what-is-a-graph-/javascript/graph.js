@@ -1,15 +1,38 @@
 class Graph {
   constructor(paths) {
+    this.graph = paths.reduce(
+      (graph, path) => this.constructor.populate(graph, path),
+      {}
+    );
+  }
 
+  static populate(graph, path) {
+    return path.reduce((graph, vertex, idx) => {
+      graph[vertex] = graph[vertex] || new Set();
+      const nextVertex = path[idx + 1];
+
+      if (nextVertex !== undefined) {
+        graph[vertex].add(nextVertex);
+        graph[nextVertex] = graph[nextVertex] || new Set();
+        graph[nextVertex].add(vertex);
+      }
+
+      return graph;
+    }, graph);
   }
 
   isAdjacent(vertexA, vertexB) {
-
+    return this.graph[vertexA].has(vertexB);
   }
 
   // array is an adjacency list
   addVertex(vertex, array) {
+    this.graph[vertex] = new Set(array);
 
+    array.forEach((adjacency) => {
+      this.graph[adjacency] = this.graph[adjacency] || new Set();
+      this.graph[adjacency].add(vertex);
+    });
   }
 }
 
@@ -22,9 +45,14 @@ if (require.main === module) {
 
   console.log("");
 
-  graph = new Graph([["a", "b", "c"], ["b", "d"]]);
+  graph = new Graph([
+    ["a", "b", "c"],
+    ["b", "d"],
+  ]);
 
-  console.log('Expecting: { a: { "b" }, b: { "a", "c", "d" }, c: { "b" }, d: { "b" }}');
+  console.log(
+    'Expecting: { a: { "b" }, b: { "a", "c", "d" }, c: { "b" }, d: { "b" }}'
+  );
   console.log(graph.graph);
 
   console.log("");
@@ -40,10 +68,12 @@ if (require.main === module) {
   console.log("");
 
   graph.addVertex("e", ["a", "d"]);
-  console.log('Expecting: { a: { "b", "e" }, b: { "a", "c", "d" }, c: { "b" }, d: { "b", "e" }, e: { "a", "d" } }');
+  console.log(
+    'Expecting: { a: { "b", "e" }, b: { "a", "c", "d" }, c: { "b" }, d: { "b", "e" }, e: { "a", "d" } }'
+  );
   console.log(graph.graph);
 
-  console.log("")
+  console.log("");
 }
 
 module.exports = Graph;

@@ -64,8 +64,23 @@ function romanNumeral(string) {
   // }
   // return total;
 
-  let total = 0;
-  let index = 0;
+  // let total = 0;
+  // let index = 0;
+
+  // while (index < string.length) {
+  //   let twoChar = string[index] + (string[index + 1] || "");
+  //   if (romans[twoChar]) {
+  //     total += romans[twoChar];
+  //     index += 2;
+  //   } else {
+  //     total += romans[string[index]];
+  //     ++index;
+  //   }
+  // }
+  // return total;
+
+  index = 0;
+  total = 0;
 
   while (index < string.length) {
     let twoChar = string[index] + (string[index + 1] || "");
@@ -74,7 +89,7 @@ function romanNumeral(string) {
       index += 2;
     } else {
       total += romans[string[index]];
-      ++index;
+      index++;
     }
   }
   return total;

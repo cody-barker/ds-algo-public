@@ -1,6 +1,8 @@
 class LinkedList {
   constructor(head = null) {
     this.head = head;
+    this.tail = null;
+    this.size = 0;
   }
 
   iterate(callback) {
@@ -24,7 +26,7 @@ class LinkedList {
   // print each node's value on its own line
   // use your iterate method to be DRY! Don't get caught in the code rain, brrr.
   print() {
-    this.iterate(node => console.log(node.value));
+    this.iterate((node) => console.log(node.value));
   }
 
   // find the node with the target value and return it
@@ -32,7 +34,7 @@ class LinkedList {
   find(target) {
     let result = null;
 
-    this.iterate(node => {
+    this.iterate((node) => {
       if (node.value === target) {
         result = node;
 
@@ -57,7 +59,7 @@ class LinkedList {
       return;
     }
 
-    this.iterate(currNode => {
+    this.iterate((currNode) => {
       if (currNode.next === null) {
         currNode.next = node;
         return true;
@@ -86,7 +88,7 @@ class LinkedList {
 
     let oldTail = null;
 
-    this.iterate(node => {
+    this.iterate((node) => {
       if (node.next.next === null) {
         oldTail = node.next;
         node.next = null;
@@ -151,13 +153,28 @@ class LinkedList {
 
         return true;
       }
-    }); 
+    });
 
     return oldNode;
   }
 
   clear() {
     this.head = null;
+  }
+
+  reverse() {
+    let prev = null;
+    let current = this.head;
+    this.tail = this.head; // The old head becomes the new tail
+
+    while (current !== null) {
+      const next = current.next; // Store the next node
+      current.next = prev; // Reverse the pointer
+      prev = current; // Move `prev` and `current` one step forward
+      current = next;
+    }
+
+    this.head = prev; // Set the new head to `prev`
   }
 }
 
@@ -169,13 +186,16 @@ class Node {
 }
 
 if (require.main === module) {
-  let head = new Node('one', new Node('two', new Node('three', new Node('four'))));
+  let head = new Node(
+    "one",
+    new Node("two", new Node("three", new Node("four")))
+  );
   let list = new LinkedList(head);
   let emptyList = new LinkedList();
-  let oneItemList = new LinkedList(new Node('just one'));
-
+  let oneItemList = new LinkedList(new Node("just one"));
 }
 
 module.exports = {
-  Node, LinkedList
+  Node,
+  LinkedList,
 };

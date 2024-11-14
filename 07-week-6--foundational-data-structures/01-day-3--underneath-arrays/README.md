@@ -11,7 +11,7 @@ allocates space in memory for your array, and then points that starting variable
 
 ![](https://s3.amazonaws.com/learn-verified/objects-tenElementArray.gif)
 
-So let's say my array say starts at memory address 100. And assume that the programming language allocates 8 bits for each element in the array. And that it allocates enough space for ten elements evenly spaced in memory.
+So let's say my array starts at memory address 100. And assume that the programming language allocates 8 bits for each element in the array. And that it allocates enough space for ten elements evenly spaced in memory.
 
 Now, let's try to think through how a computer program retrieves an element at a specific index.
 
