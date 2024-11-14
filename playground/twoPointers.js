@@ -17,6 +17,7 @@ function hasPairWithSum(arr, target) {
     return false; // No pair found
 }
 
+//sorted array
 function hasPairWithSum(array, target) {
     let left = 0;
     let right = array.length - 1;
