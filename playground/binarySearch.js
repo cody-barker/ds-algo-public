@@ -19,4 +19,8 @@ function binarySearch(array, target) {
 
 const array = [1,2,5,7,9,11,13,15];
 
+console.log("Expecting 6")
 console.log(binarySearch(array, 13))
+
+console.log("Expecting -1")
+console.log(binarySearch(array, 0))
