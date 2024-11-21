@@ -196,3 +196,5 @@ the pairing exercises together and give feedback.
 
 - [ ] [Code Comparison](./20-pairing-exercises-5/00-code-comparison)
 - [ ] [Whiteboard and Calculate Big O](./20-pairing-exercises-5/01-whiteboard-and-calculate-big-o)
+
+test
